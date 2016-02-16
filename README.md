@@ -1,8 +1,8 @@
-# context
+# Context
 * uaa is running on http://localhost:8080, context: /uaa
 * demo resource server is running on http://localhost:8082, context: /
 
-# requirements
+# Requirements
 
 * uaac target http://localhost:8080/uaa
 * uaac token client get admin --secret adminsecret
