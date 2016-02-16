@@ -15,4 +15,4 @@
 # /check_token
 
 * the demo-resource client must have the "uaa.resource" authority to perform /check_token.
-* the access_token is granted for the scopes test1, test2, test3
+* the access_token is granted for the scopes "test"
