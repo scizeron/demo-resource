@@ -1,0 +1,27 @@
+{
+ "details": {
+  "remoteAddress":"127.0.0.1"
+  ,"sessionId":null
+  ,"tokenValue":"eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3OTM1ZWI0OS1lZjRlLTRiYTQtYWVmYy05MWVmN2Q0NDk1ZTQiLCJzdWIiOiI5NmRkOGNlZC1kZjc1LTQ1OGYtOTVkZC0wMmI4NTUzY2U0NGYiLCJzY29wZSI6WyJ0ZXN0Il0sImNsaWVudF9pZCI6ImFwcC1yZXNvdXJjZSIsImNpZCI6ImFwcC1yZXNvdXJjZSIsImF6cCI6ImFwcC1yZXNvdXJjZSIsInVzZXJfaWQiOiI5NmRkOGNlZC1kZjc1LTQ1OGYtOTVkZC0wMmI4NTUzY2U0NGYiLCJvcmlnaW4iOiJ1YWEiLCJ1c2VyX25hbWUiOiJkZW1vLXVzZXIiLCJlbWFpbCI6ImRlbW8udXNlckB0ZXN0LmNvbSIsImF1dGhfdGltZSI6MTQ1NTYzNDQ5NywicmV2X3NpZyI6ImE4MzlmZDMzIiwiaWF0IjoxNDU1NjM0NDk3LCJleHAiOjE0NTU2Nzc2OTcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC91YWEvb2F1dGgvdG9rZW4iLCJ6aWQiOiJ1YWEiLCJhdWQiOlsiYXBwLXJlc291cmNlIl19.XBAuK4dO7udmJURTkpCgalPmZVje7o8a5V-fjDbLD3U"
+  ,"tokenType":"Bearer"
+  ,"decodedDetails":null
+ }
+ ,"authorities":[]
+ ,"authenticated":true
+ ,"userAuthentication":{
+   "details":null
+   ,"authorities":[]
+   ,"authenticated":true
+   ,"principal":"demo-user"
+   ,"credentials":"N/A"
+   ,"name":"demo-user"
+   }
+ ,"oauth2Request":{
+   "clientId":"app-resource"
+   ,"scope":["test"]
+   ,"requestParameters":{"client_id":"app-resource"},"resourceIds":["app-resource"],"authorities":[],"approved":true,"refresh":false,"redirectUri":null,"responseTypes":[],"extensions":{},"refreshTokenRequest":null,"grantType":null}
+ ,"credentials":""
+ ,"principal":"demo-user"
+ ,"clientOnly":false
+ ,"name":"demo-user"
+}

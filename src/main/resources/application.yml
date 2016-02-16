@@ -1,0 +1,21 @@
+
+server:
+  port: 8082
+
+#management:
+#  port: 8083
+#  context-path: /admin
+
+security:
+  oauth2:
+    client:
+      client-id: demo-resource
+      client-secret: demosecret
+    resource:
+     token-info-uri: http://localhost:8080/uaa/check_token
+  basic:
+    enabled: false
+
+logging:
+ level:
+  org.springframework.security: DEBUG
