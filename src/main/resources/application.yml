@@ -18,6 +18,8 @@ security:
      key-uri: http://localhost:8080/uaa/token_key  
 #     token-info-uri: http://localhost:8080/uaa/check_token
 
+   
+
 logging:
  level:
   org.springframework.security: DEBUG
