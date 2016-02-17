@@ -15,11 +15,17 @@
    ,"principal":"demo-user"
    ,"credentials":"N/A"
    ,"name":"demo-user"
-   }
+ }
  ,"oauth2Request":{
    "clientId":"app-resource"
    ,"scope":["test"]
-   ,"requestParameters":{"client_id":"app-resource"},"resourceIds":["app-resource"],"authorities":[],"approved":true,"refresh":false,"redirectUri":null,"responseTypes":[],"extensions":{},"refreshTokenRequest":null,"grantType":null}
+   ,"requestParameters":{
+   		"client_id":"app-resource"
+   }
+   ,"resourceIds":["app-resource"]
+   ,"authorities":[]
+   ,"approved":true,"refresh":false,"redirectUri":null,"responseTypes":[],"extensions":{},"refreshTokenRequest":null,"grantType":null
+ }
  ,"credentials":""
  ,"principal":"demo-user"
  ,"clientOnly":false
