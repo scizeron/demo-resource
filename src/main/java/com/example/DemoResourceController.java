@@ -8,6 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.OAuth2RestOperations;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +19,13 @@ public class DemoResourceController {
 	@Autowired
 	private OAuth2RestOperations restOperations;
 	
+	/**
+	 * No scope concern, just a valid token.
+	 * Previously, the granted scopes have been validated against 
+	 * the client scopes and the authorities user previously
+	 * 
+	 * @return
+	 */
 	@RequestMapping("/hello")
 	public String hello() {
 		return "hello";
@@ -62,6 +70,19 @@ public class DemoResourceController {
 	@PreAuthorize("#oauth2.hasScope('test')")
 	public String downstreamHello() {
 		return this.restOperations.exchange("http://localhost:8083/secureHello", HttpMethod.GET, null, new  ParameterizedTypeReference<String>() {}).getBody();
+	}
+	
+	/**
+	 * The client has the scopes 'documents.*.read'
+	 * The user has the authorities 'documents.123.read'
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value="/documents/{id}")
+	@PreAuthorize("#oauth2.hasScope('documents.*.read')")
+	public String getDocument(@PathVariable("id") String id) {
+		return String.format("doc: %s",  id);
 	}
 	
 }
