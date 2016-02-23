@@ -1,10 +1,10 @@
 package com.example;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,8 +35,8 @@ public class DocumentController {
 	 * @return
 	 */
 	@RequestMapping(value="/{id}")
-	public Document getDocumentById(@PathVariable("id") String id) {
-		List<Document> docs = this.documentService.getDocumentsByUser(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
+	public Document getDocumentById(@PathVariable("id") String id, Principal principal) {
+		List<Document> docs = this.documentService.getDocumentsByUser(principal.getName());
 		return docs == null ? null : docs.stream().filter(d -> d.getId().equals(id)).findFirst().get();
 		
 	}
