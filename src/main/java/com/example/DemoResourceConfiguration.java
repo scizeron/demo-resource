@@ -20,9 +20,11 @@ public class DemoResourceConfiguration extends ResourceServerConfigurerAdapter {
 				.antMatchers("/hello").permitAll()
 				.antMatchers("/principal").access("#oauth2.hasScope('test')")
 				.antMatchers("/missingscope").access("#oauth2.hasScope('sdfsfsfskfhsjdfnsqdnjndqkjn')")
-				.antMatchers("/documents/**").access("#oauth2.hasScope('documents.*.read')")
+				.antMatchers("/documents/**").access("#oauth2.hasScopeMatching('documents.*.read') and #oauth2c.canRequestThis('doc')")
 				.anyRequest().authenticated();
 	}
+
+
 	
 	@Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
@@ -32,5 +34,7 @@ public class DemoResourceConfiguration extends ResourceServerConfigurerAdapter {
 //			throw new OAuth2AccessDeniedException("Invalid token does not contain resource id (" + resourceId + ")");
 //		}
         resources.resourceId(null);
+        
+        resources.expressionHandler(new CustomOAuth2WebSecurityExpressionHandler());
     }
 }
