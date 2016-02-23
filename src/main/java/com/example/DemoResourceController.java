@@ -1,13 +1,9 @@
 package com.example;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.client.OAuth2RestOperations;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(produces={MediaType.APPLICATION_JSON_VALUE})
 public class DemoResourceController {
 	
-	@Autowired
-	private OAuth2RestOperations restOperations;
 	
 	/**
 	 * No scope concern, just a valid token.
@@ -63,11 +57,5 @@ public class DemoResourceController {
 		// return 403 FORBIDDEN with {"error":"access_denied","error_description":"Access is denied"}
 		return SecurityContextHolder.getContext().getAuthentication();
 	}
-	
-	
-	@RequestMapping(value={"/downstream"})
-	@PreAuthorize("#oauth2.hasScope('test')")
-	public String downstreamHello() {
-		return this.restOperations.exchange("http://localhost:8083/secureHello", HttpMethod.GET, null, new  ParameterizedTypeReference<String>() {}).getBody();
-	}
+
 }

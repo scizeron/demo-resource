@@ -1,5 +1,6 @@
 package com.example;
 
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,6 +11,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 
 @Configuration
 @EnableResourceServer
+@EnableEurekaClient
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, proxyTargetClass = true)
 public class DemoResourceConfiguration extends ResourceServerConfigurerAdapter {
