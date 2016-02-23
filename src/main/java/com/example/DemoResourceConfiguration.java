@@ -16,11 +16,11 @@ public class DemoResourceConfiguration extends ResourceServerConfigurerAdapter {
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http
-			.authorizeRequests()
+		http.authorizeRequests()
 				.antMatchers("/hello").permitAll()
 				.antMatchers("/principal").access("#oauth2.hasScope('test')")
 				.antMatchers("/missingscope").access("#oauth2.hasScope('sdfsfsfskfhsjdfnsqdnjndqkjn')")
+				.antMatchers("/documents/**").access("#oauth2.hasScope('documents.*.read')")
 				.anyRequest().authenticated();
 	}
 	
