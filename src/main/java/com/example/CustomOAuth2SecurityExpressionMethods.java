@@ -34,15 +34,12 @@ public class CustomOAuth2SecurityExpressionMethods extends OAuth2SecurityExpress
 	 */
 	public boolean canRequestThis(String entityType) {
 		int pos = this.httpServletRequest.getRequestURI().lastIndexOf('/');
-		String id = this.httpServletRequest.getRequestURI().substring(pos+1);
-	
+		String docId = this.httpServletRequest.getRequestURI().substring(pos+1);
 		String userId = this.oAuth2Authentication.getPrincipal().toString();
 		
-		if ("doc".equals(entityType)) {
-			return "demo-user".equals(userId) && "123".equals(id);
-		} 
+		// useful to handle complex 'allow/deny' access test
 		
-		return false;
+		return true;
 	
 	}
 }

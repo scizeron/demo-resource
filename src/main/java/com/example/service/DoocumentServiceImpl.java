@@ -1,22 +1,23 @@
 package com.example.service;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
-import com.example.domain.*;
+
+import com.example.domain.Document;
+import com.google.common.collect.ImmutableMap;
 
 @Service
 public class DoocumentServiceImpl implements DocumentService {
 
-	/* (non-Javadoc)
-	 * @see com.example.service.DocumentService#getDocumentsByUser(java.lang.String)
-	 */
+	private static Map<String,Document> ALL_DOCS = ImmutableMap.<String,Document>builder()
+			.put("123", new Document("123", "demo-user"))
+			.put("124", new Document("124", "demo-user2"))
+			.put("125", new Document("125", "demo-user2"))
+			.build();
+
 	@Override
-	public List<Document> getDocumentsByUser(String userId) {
-		if ("demo-user".equals(userId)) {
-			return Arrays.asList(new Document("123", userId));
-		}
-		return null;
+	public Document findById(String id) {
+		return ALL_DOCS.get(id);
 	}
 }
